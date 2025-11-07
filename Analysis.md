@@ -1,5 +1,5 @@
 # Phân Tích Kỹ Thuật Reflective DLL Injection (RDI)
-Repository: `tiendungdo12/ReflectiveDLLInjection` (Fork từ dự án gốc của Stephen Fewer)\\
+Repository: `tiendungdo12/ReflectiveDLLInjection` (Fork từ dự án gốc của Stephen Fewer)
 Ngôn ngữ: C (100%)
 
 > Báo cáo này tổng hợp chi tiết kỹ thuật Reflective DLL Injection (RDI) cùng các khía cạnh cơ bản và nâng cao, trình bày bằng sơ đồ, bảng và minh hoạ để dễ hiểu. Nội dung nhằm mục đích nghiên cứu bảo mật, không khuyến khích sử dụng sai mục đích.
@@ -212,7 +212,7 @@ Chi phí forensic: Relocation đúng giúp DLL “giống” module hợp lệ k
 
 Hai kiểu:
 1. Loader dùng `CreateRemoteThread` để gọi Reflective Loader => loader gọi `DllMain`.
-2. Sử dụng thread sẵn, gọi trực tiếp entry -> khó detect hơn vì không tạo thread mới.
+2. Sử dụng thread sẵn, gọi trực tiếp entry -> khó detect hơn vì không t��o thread mới.
 
 Sequence chi tiết:
 
