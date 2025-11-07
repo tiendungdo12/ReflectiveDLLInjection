@@ -43,17 +43,17 @@ Khác với cách injection truyền thống (`CreateRemoteThread + LoadLibraryA
 
 ```mermaid
 flowchart TD
-    A[Injection: Copy raw DLL bytes vào bộ nhớ tiến trình mục tiêu]
-    B[Locate Reflective Loader entry]
-    C[Parse PE Headers]
-    D[Allocate / Prepare Memory Region cho Image]
-    E[Copy Sections]
-    F[Apply Relocations nếu base != preferred]
-    G[Resolve Imports (IAT)]
-    H[Handle TLS Callbacks]
-    I[Set Final Memory Protections cho từng section]
-    J[Call DllMain(DLL_PROCESS_ATTACH)]
-    K[(DLL Ready)]
+    A["Injection: Copy raw DLL bytes vào bộ nhớ tiến trình mục tiêu"]
+    B["Locate Reflective Loader entry"]
+    C["Parse PE Headers"]
+    D["Allocate / Prepare Memory Region cho Image"]
+    E["Copy Sections"]
+    F["Apply Relocations nếu base ≠ preferred"]
+    G["Resolve Imports (IAT)"]
+    H["Handle TLS Callbacks"]
+    I["Set Final Memory Protections cho từng section"]
+    J["Call DllMain(DLL_PROCESS_ATTACH)"]
+    K["DLL Ready"]
 
     A --> B --> C --> D --> E --> F --> G --> H --> I --> J --> K
 ```
@@ -405,7 +405,7 @@ classDiagram
 
 ## 25. Kết Luận
 
-RDI là một kỹ thuật tinh gọn nhưng mạnh, cho phép nạp payload module một cách linh hoạt và khó phát hiện nếu triển khai cẩn trọng (đặc biệt về quyền bộ nhớ và chuỗi gọi API). Tuy nhiên, chính việc phải tự tái hiện hành vi loader khiến dễ phát sinh sai sót — và cũng tạo nhiều điểm phát hiện hành vi cho các hệ thống phòng thủ hiện đại nếu không tinh chỉnh hợp lý. Việc hiểu sâu chu trình PE, reloc, IAT, TLS là nền tảng để tối ưu hoặc phòng thủ.
+RDI là một kỹ thuật tinh gọn nhưng mạnh, cho phép nạp payload module một cách linh hoạt và khó phát hiện nếu triển khai cẩn thận (đặc biệt về quyền bộ nhớ và chuỗi gọi API). Tuy nhiên, chính việc phải tự tái hiện hành vi loader khiến dễ phát sinh sai sót — và cũng tạo nhiều điểm phát hiện hành vi cho các hệ thống phòng thủ hiện đại nếu không tinh chỉnh hợp lý. Việc hiểu sâu chu trình PE, reloc, IAT, TLS là nền tảng để tối ưu hoặc phòng thủ.
 
 ---
 
